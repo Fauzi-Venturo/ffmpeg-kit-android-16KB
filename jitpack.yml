@@ -1,0 +1,8 @@
+jdk:
+  - openjdk17
+before_install:
+  - cd android
+  - sed -i "s/signAllPublications=true/signAllPublications=false/" gradle.properties
+  - sed -i "s/mavenCentralPublishing=true/mavenCentralPublishing=false/" gradle.properties
+install:
+  - ./gradlew :ffmpeg-kit-android-lib:publishToMavenLocal
